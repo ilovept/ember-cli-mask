@@ -161,7 +161,8 @@ export default Ember.Component.extend({
         event.target.value = mask.props.value;
         event.target.selectionStart = mask.cursor;
         event.target.selectionEnd = mask.cursor;
-      });
+        this.set('value', mask.props.value);
+      }.bind(this));
     }
   },
 
@@ -180,6 +181,7 @@ export default Ember.Component.extend({
       }
 
       event.target.value = value;
+      this.set('value', value);
       this._mask.focused = false;
     }
   },
